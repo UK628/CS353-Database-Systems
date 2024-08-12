@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register Page</title>
+	<style>
+		body {
+			background-color: #1b1a20;
+			color: #e5e5e5;
+		}
+		.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		}
+		
+		.card {
+			background-color: #292828;
+			border-radius: 10px;
+			padding: 40px;
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			width: 350px;
+		}
+		
+		h2 {
+			margin-top: 0px;
+			margin-bottom: 30px;
+		}
+		
+		form {
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.form-group {
+			margin-bottom: 20px;
+		}
+		
+		label {
+			margin-bottom: 10px;
+		}
+		
+		input {
+			padding: 10px;
+			background-color: #3a3a3a;
+			border: none;
+			border-radius: 5px;
+			color: #e5e5e5;
+		}
+		
+		.btn {
+			background-color: #3897f0;
+			color: #e5e5e5;
+			border: none;
+			border-radius: 5px;
+			padding: 10px;
+			font-size: 16px;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+		
+		.btn:hover {
+			background-color: #2368b8;
+		}
+		
+		p {
+			margin-top: 20px;
+			font-size: 14px;
+		}
+		
+		a {
+			color: #3897f0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<h2>Register</h2>
+			<form action="{{ url_for('register') }}" method="post">
+				{% if message is defined and message %}
+				<script>
+					alert('{{ message }}');
+				</script>
+				{% endif %}
+				<div class="form-group">
+					<label for="username">Username:</label>
+					<input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+				</div>
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+				</div>
+				<div class="form-group">
+					<label for="password">Password:</label>
+					<input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+				</div>    
+				<button type="submit" class="btn btn-primary">Register</button>
+			</form>
+			<p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+		</div>
+	</div>
+</body>
+</html>
